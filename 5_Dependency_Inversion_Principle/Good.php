@@ -31,5 +31,10 @@ class App
     }
 
     //    todo something more...
+
+    public function __destruct()
+    {
+        $this->database->closeConnection();
+    }
 }
 
