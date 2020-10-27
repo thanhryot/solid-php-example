@@ -1,24 +1,32 @@
 <?php
 
-abstract class Bird
+abstract class Employee
 {
+    public abstract function work();
 }
 
-abstract class FlyingBird extends Bird
+class Tester extends Employee
 {
-    public abstract function fly();
-}
-
-
-class Parrot extends FlyingBird
-{
-    public function fly()
+    public function work()
     {
-        return "Parrot is flying!";
+        return "Testing";
     }
 }
 
-class Ostrich extends Bird
+class Coder extends Employee
 {
-    // something more ...
+    public function work()
+    {
+        return "Coding";
+    }
+}
+
+class ProjectManager
+{
+    public function command(Employee $employee)
+    {
+        return $employee->work();
+    }
+
+    // No need to edit code in here when adding new employee type
 }

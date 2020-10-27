@@ -1,25 +1,34 @@
 <?php
 
-abstract class Bird
+abstract class Employee
 {
-    public abstract function fly();
 }
 
-
-class Parrot extends Bird
+class Tester extends Employee
 {
-    public function fly()
+    public function testing()
     {
-        return "Parrot is flying!";
+        return "Testing";
     }
 }
 
-class Ostrich extends Bird
+class Coder extends Employee
 {
-    public function fly()
+    public function coding()
     {
-        // Ostrich can't fly!!
+        return "Coding";
     }
+}
 
-    // something more ...
+class ProjectManager
+{
+    public function command(Employee $employee)
+    {
+        if ($employee instanceof Tester) {
+            return $employee->testing();
+        } else if ($employee instanceof Coder) {
+            return $employee->coding();
+        }
+        // ... more code in here when adding new employee type
+    }
 }
