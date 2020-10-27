@@ -10,7 +10,7 @@ class Parrot extends Bird
 {
     public function fly()
     {
-        return "Parrot Fly";
+        return "Parrot is flying!";
     }
 }
 
