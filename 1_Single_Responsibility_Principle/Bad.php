@@ -1,16 +1,28 @@
 <?php
 
-interface DBHelper
+interface IEmployeeStore
 {
-    public function openConnection();
+    public function getEmployeeById(int $id): Employee;
 
-    public function createUser();
+    public function addEmployee(Employee $employee): void;
 
-    public function getListUsers();
+    public function sendEmail(Employee $employee, string $content): void;
+}
 
-    public function createProduct();
+class EmployeeStore implements IEmployeeStore
+{
+    public function getEmployeeById(int $id): Employee
+    {
+        // add logic
+    }
 
-    public function getListProducts();
+    public function addEmployee(Employee $employee): void
+    {
+        // add logic
+    }
 
-    public function closeConnection();
+    public function sendEmail(Employee $employee, string $content): void
+    {
+        // add logic
+    }
 }

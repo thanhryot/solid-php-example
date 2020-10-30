@@ -1,22 +1,43 @@
 <?php
 
-interface DBHelper
+interface IEmployeeStore
 {
-    public function openConnection();
+    public function getEmployeeById(int $id): Employee;
 
-    public function closeConnection();
+    public function addEmployee(Employee $employee): void;
 }
 
-interface UserHelper
+interface IEmailSender
 {
-    public function createUser();
-
-    public function getListUsers();
+    public function sendEmail(Employee $employee, string $content): void;
 }
 
-interface ProductHelper
+class EmailSender implements IEmailSender
 {
-    public function createProduct();
+    public function sendEmail(Employee $employee, string $content): void
+    {
+        // add logic
+    }
+}
 
-    public function getListProducts();
+class EmployeeStore implements IEmployeeStore
+{
+    // inject in runtime
+    private IEmailSender $emailSender;
+
+    public function __construct(IEmailSender $emailSender)
+    {
+        $this->emailSender = $emailSender;
+    }
+
+    public function getEmployeeById(int $id): Employee
+    {
+        // add logic
+    }
+
+    public function addEmployee(Employee $employee): void
+    {
+        // add logic
+    }
+
 }
